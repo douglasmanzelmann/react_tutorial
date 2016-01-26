@@ -1,0 +1,57 @@
+<head>
+
+  <script src="https://fb.me/react-0.14.6.js"></script>
+  <script src="https://fb.me/react-dom-0.14.6.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.12.2.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 target">
+      </div>
+    </div>
+  </div>
+</body>
+
+<script type="text/jsx">
+  // define a react component class
+  var Badge = React.createClass({
+    render: function() {
+      return <button className="btn btn-primary" type="button">
+        {this.props.title} <span className="badge">{this.props.number}</span>
+    </button>
+    }
+  });
+
+  var Thumbnail = React.createClass({
+    render: function() {
+      return <div className="thumbnail">
+        <img src={this.props.imageUrl} />
+          <div className="caption">
+            <h3>{this.props.header}</h3>
+              <p>{this.props.description}</p>
+              <p>
+                <Badge title={this.props.title} number={this.props.number} />
+              </p>
+          </div>
+      </div>
+    }
+  });
+
+  // passed into the component
+  var options = {
+    title: 'Want this model to verify',
+    number: 35,
+    header: 'Learn React',
+    description: 'React is a great library blah blabh lbhab adsd fa',
+    imageUrl: 'http://i.imgur.com/WecxkcG.png'
+  };
+
+  // render the class
+  var element = React.createElement(Thumbnail, options);
+
+  // tell react where to place the rendered element in the dom
+  ReactDOM.render(element, document.querySelector('.target'));
+</script>

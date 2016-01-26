@@ -1,0 +1,24 @@
+<head>
+  <script src="https://fb.me/react-0.14.6.js"></script>
+  <script src="https://fb.me/react-dom-0.14.6.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.12.2.js"></script>
+</head>
+<body>
+</body>
+
+<script type="text/jsx">
+  // define a react component class
+  var HelloWorld = React.createClass({
+    render: function() {
+      return <div>
+        Hello World!
+      </div>
+    }
+  });
+
+  // render the class
+  var element = React.createElement(HelloWorld);
+
+  // tell react where to place the rendered element in the dom
+  ReactDOM.render(element, document.body);
+</script>
